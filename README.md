@@ -4,21 +4,10 @@ A small movie browsing app used for frontend interview practice: a "random
 movie" page and a movie search page, both backed by a self-hosted API instead
 of a third-party one (so it works regardless of firewall rules).
 
-The frontend is deliberately left unpolished — both pages call `fetch` with a
-hardcoded absolute URL, duplicated, with no debounce on search and no shared
-data-fetching hook or API client. That's intentional starter code: candidates
-are expected to notice the duplication and the un-debounced network-per-
-keystroke search, then refactor/fix it themselves.
-
 ## Structure
 
 - `client/` — React + Vite + TypeScript frontend.
-- `server/` — Fastify + TypeScript backend. Serves a bundled, deterministic
-  synthetic movie dataset (not real movie data) over a small REST API, and
-  deliberately simulates network latency and occasional errors on the data
-  endpoints so the frontend has real debounce/error-handling exercises to
-  work through. CORS is open (`origin: true`) since the client calls it
-  cross-origin with full absolute URLs rather than through a dev proxy.
+- `server/` — Fastify + TypeScript backend.
 
 `client/` and `server/` are independent npm packages, not npm workspaces.
 
